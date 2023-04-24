@@ -1,19 +1,20 @@
-#Shell script using command line to test whether given number is prime or not
-if [ $# -ne 1 ] 
-then 
-echo "syntax error"
-exit
-fi
-p=$1
-i=2
-while [ $i -le `expr $p / 2` ]
-do
-if [ `expr $p % $i` -eq 0 ]
-then
-echo "the number $p is not a prime number"
-exit
-fi
-i=`expr $i + 1`
-done
-echo "the number $p is a prime number"
+#display the prime numbers
 
+echo enter m and n
+read m n
+for a in $(seq $m $n)
+do
+k=0
+for i in $(seq 2 $(expr $a - 1))
+do 
+if [ $(expr $a % $i) -eq 0 ]
+then
+k=1
+break
+fi
+done
+if [ $k -eq 0 ]
+then
+echo $a
+fi
+done
